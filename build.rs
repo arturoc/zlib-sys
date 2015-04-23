@@ -18,5 +18,6 @@ fn main() {
 	let out_dir = env::var("OUT_DIR").unwrap();
 	let dest_path = Path::new(&out_dir).join("libz.a");
 	fs::copy(build_dir.join("libz.a"),dest_path).unwrap();
-	println!("cargo:rustc-flags= -L native={}",out_dir);
+	println!("cargo:rustc-link-lib=static=z");
+	println!("cargo:rustc-link-search=native={}",out_dir);
 }
