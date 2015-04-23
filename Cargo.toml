@@ -1,0 +1,10 @@
+[package]
+name = "zlib-sys"
+version = "0.0.1"
+authors = [ "Your name <you@example.com>" ]
+links = "zlib"
+build = "build.rs"
+
+[lib]
+name = "zlib_sys"
+path = "empty.rs"

@@ -1,0 +1,10 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/arturo/Code/rin/libs/zlib-rs/zlib-1.2.8/build
+[ 44%] Built target zlib
+[ 47%] Built target example
+[ 50%] Built target example64
+[ 52%] Built target minigzip
+[ 55%] Built target minigzip64
+[100%] Built target zlibstatic
+cargo:rustc-flags= -L native=/home/arturo/Code/rin/libs/zlib-rs/target/debug/build/zlib-sys-4ee7aef6b38f8427/out
