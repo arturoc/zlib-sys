@@ -1,9 +1,9 @@
 [package]
-name = "zlib-sys"
+name = "zlib-src-sys"
 version = "0.0.1"
 authors = [ "Jean-loup Gailly", "Mark Adler", "Arturo Castro <me@arturocastro.net>" ]
 description = "Rust build helpers for zlib. Licensed as GPL2 or FreeType License"
-license-file = "http://zlib.net/zlib_license.html"
+license-file = "LICENSE"
 homepage = "http://zlib.net"
 repository = "https://github.com/arturoc/zlib-sys"
 links = "zlib"
