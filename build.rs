@@ -53,7 +53,12 @@ fn build_windows() {
 	let dst = cmake::build("zlib-1.2.8");
 	let lib_dir = dst.join("lib");
 	println!("cargo:rustc-link-search=native={}", lib_dir.display());
+
+	#[cfg(debug_assertions)]
 	println!("cargo:rustc-link-lib=static=zlibstaticd");
+
+	#[cfg(not(debug_assertions))]
+	println!("cargo:rustc-link-lib=static=zlibstatic");
 }
 
 fn main(){
