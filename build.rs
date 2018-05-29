@@ -1,7 +1,10 @@
+extern crate cmake;
+
 use std::process::Command;
 use std::env;
 use std::fs;
 use std::path::Path;
+
 
 fn build_unix() {
 	let zlib_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
@@ -46,6 +49,12 @@ fn build_emscripten() {
 	println!("cargo:rustc-link-search=native={}",out_dir);
 }
 
+fn build_windows() {
+	let dst = cmake::build("zlib-1.2.8");
+	let lib_dir = dst.join("lib");
+	println!("cargo:rustc-link-search=native={}", lib_dir.display());
+	println!("cargo:rustc-link-lib=static=zlibstaticd");
+}
 
 fn main(){
 	let target_triple = env::var("TARGET").unwrap();
@@ -53,6 +62,8 @@ fn main(){
 		build_unix()
 	}else if target_triple.contains("darwin") {
 		build_unix()
+	}else if target_triple.contains("windows") {
+		build_windows()
 	}else if target_triple.contains("emscripten") {
 		build_emscripten()
 	}else{
