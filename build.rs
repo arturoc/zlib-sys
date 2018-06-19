@@ -71,6 +71,8 @@ fn main(){
 		build_windows()
 	}else if target_triple.contains("emscripten") {
 		build_emscripten()
+	}else if target_triple.contains("wasm32"){
+		build_emscripten()
 	}else{
 		panic!("target OS {} not suported yet", target_triple);
 	}
